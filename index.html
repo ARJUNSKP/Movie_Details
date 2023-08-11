@@ -11,15 +11,15 @@
 <body style="margin: 0;padding: 0;scroll-behavior: none;">
     <div id="main_div">
         <div class="text-center" id="movie_input" >
-            <input type="text" onkeypress="movieApi(event)"  placeholder="Movie Name" id="movie_bar" name="movie" class="w-50 text-center">
+            <input type="text"   placeholder="Movie Name" id="movie_bar" name="movie" class="w-50 text-center">
+            <button type="button" onclick="movieApi()" class="btn btn-outline-light">Details</button>
         </div>
         <div id="popup">
         </div>
     </div>
 </body>
 <script>
-    movieApi=(a)=>{
-        if(a.key ===  "Enter" || a.key === " "){
+    movieApi=()=>{
         console.log("ys")
         movie=movie_bar.value
         fetch(`http://www.omdbapi.com/?apikey=3dde3c0a&t=${movie}`).then(Response=> Response.json())
@@ -33,6 +33,5 @@
                                                 </div>
                                             </div>`)
         }
-    }
 </script>
 </html>
