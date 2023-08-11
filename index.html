@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="./movie.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body style="margin: 0;padding: 0;scroll-behavior: none;">
+    <div id="main_div">
+        <div class="text-center" id="movie_input" >
+            <input type="text" onkeypress="movieApi(event)"  placeholder="Movie Name" id="movie_bar" name="movie" class="w-50 text-center">
+        </div>
+        <div id="popup">
+        </div>
+    </div>
+</body>
+<script>
+    movieApi=(a)=>{
+        if(a.key ===  "Enter" || a.key === " "){
+        console.log("ys")
+        movie=movie_bar.value
+        fetch(`http://www.omdbapi.com/?apikey=3dde3c0a&t=${movie}`).then(Response=> Response.json())
+        .then(Response=> popup.innerHTML=`<div class="card" style="width:339px;">
+                                                <img src="${Response.Poster}" class="card-img-top" alt="..." style="height: 19rem;width: 21.rem"; />
+                                                <div class="card-body">
+                                                    <h4>Movie Name:-<b>${Response.Title}</b><h4>
+                                                    <h4>Movie Released:-<b>${Response.Released}</b></h4>
+                                                    <h4>Movie Director:-<b>${Response.Director}</b></h4>
+                                                    <h4>Movie Ratings:-<b>${Response.Ratings[0].Value}</b><h4>
+                                                </div>
+                                            </div>`)
+        }
+    }
+    // moviesDetails=(Data)=>{
+    //     imges.innerHTML="<img src=\'`${Data.Poster}`\' width=\'400px\' height=\'150px\'>"
+    //     console.log(Data.Poster);
+    //     movie_title.innerHTML=`${Data.Title}`
+    //     movieReleased.innerHTML=`${Data.Released}`
+    //     movieDirector.innerHTML=`${Data.Director}`
+    //     movieWriter.innerHTML=`${Data.Writer}`
+    //     moviePlot.innerHTML=`${Data.Plot}`
+    // }
+</script>
+</html>
+<!-- <li><h4>Movie Name:-</h4><li>
+    <li><h4>Year:-</h4></li>
+    <li><h4>Released:-</h4></li>
+    <h4>Director:-</h4><h3 id="movieDirector"></h3>
+    <h4>Writer:-</h4><h3 id="movieWriter"></h3>
+    <h4>Plot:-</h4><h3 id="moviePlot"></h3> -->

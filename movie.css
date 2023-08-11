@@ -1,0 +1,36 @@
+
+#main_div{
+    padding: 1rem;
+    background-image: url(https://i.postimg.cc/3JY35RY0/istockphoto-506221782-612x612.jpg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#movie_input{
+    margin: 1rem 0;
+}
+input{
+    height: 3rem;
+    border-radius: 2rem;
+}
+.card-body ul{
+    list-style: none;
+    padding: 10rem 0;
+}
+#divmove{
+    box-shadow: 10px 10px #888;
+}
+#popup{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 500px){
+    .card{
+        width: 30rem;
+    }
+}
+/* @media screen and () {
+    
+} */
