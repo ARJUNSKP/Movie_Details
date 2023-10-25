@@ -22,7 +22,7 @@
     movieApi=()=>{
         console.log("ys")
         movie=movie_bar.value
-        fetch(`http://www.omdbapi.com/?apikey=3dde3c0a&t=${movie}`).then(Response=> Response.json())
+        fetch(`https://www.omdbapi.com/?apikey=3dde3c0a&t=${movie}`).then(Response=> Response.json())
         .then(Response=> popup.innerHTML=`<div class="card" style="width:339px;">
                                                 <img src="${Response.Poster}" class="card-img-top" alt="..." style="height: 19rem;width: 21.rem"; />
                                                 <div class="card-body">
